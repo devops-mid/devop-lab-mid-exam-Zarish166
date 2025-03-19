@@ -1,3 +1,5 @@
 #!/bin/bash
 echo "Running tests..."
-# TODO: Add commands to run unit and integration tests
+pytest tests/ --disable-warnings
+echo "Tests completed!"
+
