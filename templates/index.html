@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Web App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function validateForm() {
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let phoneRegex = /^[0-9]{10}$/;
+            
+            if (!email.includes("@")) {
+                alert("Please enter a valid email.");
+                return false;
+            }
+            
+            if (!phoneRegex.test(phone)) {
+                alert("Phone number must be exactly 10 digits.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <h2>Register User</h2>
-    <form action="/submit" method="post">
+    <form action="/submit" method="POST" onsubmit="return validateForm()">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -22,3 +40,4 @@
     </form>
 </body>
 </html>
+
