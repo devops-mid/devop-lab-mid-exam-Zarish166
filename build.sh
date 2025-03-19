@@ -1,3 +1,6 @@
 #!/bin/bash
-echo "Building the application..."
-# TODO: Add commands to install dependencies and build the app
+echo "Installing dependencies..."
+pip3 install -r requirements.txt --user
+echo "Build completed successfully!"
+
+
